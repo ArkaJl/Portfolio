@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерфейсы — Портфолио</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+        .gallery-item {
+            height: 200px;
+            width: auto;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            position: relative;
+        }
+        .wide-item {
+            height: 300px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+
+    <!-- Навигация -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex gap-6 text-sm">
+            <a href="index.html" class="hover:text-blue-400 transition">Главная</a>
+            <a href="3d-models.html" class="hover:text-blue-400 transition">3D Модели</a>
+            <a href="interfaces.html" class="text-blue-400 font-semibold">Интерфейсы</a>
+            <a href="pet-projects.html" class="hover:text-blue-400 transition">Pet-проекты</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-10">
+
+        <!-- Секция 1: Верстка соцсети -->
+        <section class="mb-16">
+            <h1 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-3">
+                1. Верстка интерфейсов для соцсети с использованием Tailwind CSS
+            </h1>
+            <div class="flex flex-wrap gap-3">
+                <img src="pictures/1/photo_7_2026-10-14_17-44-14.jpg" alt="photo_7" class="gallery-item">
+                <img src="pictures/1/photo_3_2026-10-14_17-44-14.jpg" alt="photo_3" class="gallery-item">
+                <img src="pictures/1/photo_1_2026-10-14_17-44-14.jpg" alt="photo_1" class="gallery-item">
+                <img src="pictures/1/photo_2_2026-10-14_17-44-14.jpg" alt="photo_2" class="gallery-item">
+                <img src="pictures/1/photo_4_2026-10-14_17-44-14.jpg" alt="photo_4" class="gallery-item">
+                <img src="pictures/1/photo_5_2026-10-14_17-44-14.jpg" alt="photo_5" class="gallery-item">
+                <img src="pictures/1/photo_5_2026-10-14_17-44-14.jpg" alt="photo_5" class="gallery-item">
+                <img src="pictures/1/photo_8_2026-10-14_17-44-14.jpg" alt="photo_8" class="gallery-item wide-item">
+            </div>
+        </section>
+
+        <!-- Секция 2: Страницы Desktop-приложения -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-3">
+                2. Разработанные страницы для Desktop-приложения по макетам Figma
+            </h2>
+            <div class="flex flex-wrap gap-3">
+                <img src="pictures/2/Панель авторизации.png" alt="Панель авторизации" class="gallery-item">
+                <img src="pictures/2/Панель администратора/Группы/Группа - Пользователи.png" alt="Группа - Пользователи" class="gallery-item">
+                <img src="pictures/2/Панель преподавателя/Группы/Группа - Создание сессии.png" alt="Группа - Создание сессии" class="gallery-item">
+                <img src="pictures/2/Панель студента/Сессии/Сессия - Управление.png" alt="Сессия - Управление" class="gallery-item">
+                <img src="pictures/2/Панель преподавателя/Сессии/Сессия - Аудит.png" alt="Сессия - Аудит" class="gallery-item">
+                <img src="pictures/2/Панель преподавателя/Сессии/Сессия - Выставление оценок.png" alt="Сессия - Выставление оценок" class="gallery-item">
+            </div>
+        </section>
+
+        <!-- Секция 3: Видео -->
+        <section class="mb-16">
+            <h3 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-3">
+                Видео-демонстрация разработанного приложения
+            </h3>
+            <a href="pictures/2/видеодемонстрация.mp4" target="_blank" class="text-blue-400 hover:underline">
+                видеодемонстрация.mp4
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-gray-700 py-6 text-center text-sm text-gray-500">
+        © 2026 Портфолио
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Модели — Портфолио</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+        .gallery-item {
+            height: 200px;
+            width: auto;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+
+    <!-- Навигация -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex gap-6 text-sm">
+            <a href="index.html" class="hover:text-blue-400 transition">Главная</a>
+            <a href="3d-models.html" class="text-blue-400 font-semibold">3D Модели</a>
+            <a href="interfaces.html" class="hover:text-blue-400 transition">Интерфейсы</a>
+            <a href="pet-projects.html" class="hover:text-blue-400 transition">Pet-проекты</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-10">
+
+        <!-- Секция 1: Рендеры -->
+        <section class="mb-16">
+            <h1 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-3">1. Рендеры и модели</h1>
+
+            <div class="flex flex-wrap gap-3">
+                <img src="pictures/3/crafty20.png" alt="crafty20" class="gallery-item">
+                <img src="pictures/3/female_game_character.png" alt="female_game_character" class="gallery-item">
+                <img src="pictures/3/fishhh_render2.png" alt="fishhh_render2" class="gallery-item">
+                <img src="pictures/3/street.jpg" alt="street" class="gallery-item">
+                <img src="pictures/3/sword_5.png" alt="sword_5" class="gallery-item">
+                <img src="pictures/3/lantern_nature.png" alt="lantern_nature" class="gallery-item">
+                <img src="pictures/3/tea_gast.png" alt="tea_gast" class="gallery-item">
+                <img src="pictures/3/car.jpg" alt="car" class="gallery-item">
+                <img src="pictures/3/е102.png" alt="е102" class="gallery-item">
+                <img src="pictures/3/куб.png" alt="куб" class="gallery-item">
+                <img src="pictures/3/little_cat_2.png" alt="little_cat_2" class="gallery-item">
+                <img src="pictures/3/wildwes.png" alt="wildwes" class="gallery-item">
+                <img src="pictures/3/sea_sword.png" alt="sea_sword" class="gallery-item">
+                <img src="pictures/3/dragonWorkbench.png" alt="dragonWorkbench" class="gallery-item">
+            </div>
+        </section>
+
+        <!-- Секция 2: Анимации -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-3">2. Анимации</h2>
+            <a href="pictures/3/cuber_pumkin.mp4" target="_blank" class="text-blue-400 hover:underline">
+                cuber_pumkin.mp4
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-gray-700 py-6 text-center text-sm text-gray-500">
+        © 2026 Портфолио
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet-проекты — Портфолио</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+        h1, h2, h3, h4 { scroll-margin-top: 80px; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+
+    <!-- Навигация -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex gap-6 text-sm">
+            <a href="index.html" class="hover:text-blue-400 transition">Главная</a>
+            <a href="3d-models.html" class="hover:text-blue-400 transition">3D Модели</a>
+            <a href="interfaces.html" class="hover:text-blue-400 transition">Интерфейсы</a>
+            <a href="pet-projects.html" class="text-blue-400 font-semibold">Pet-проекты</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-10 space-y-16">
+
+        <!-- Проект 1 -->
+        <section>
+            <h1 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-3">
+                1. Система цифровой платформы оценки образовательных результатов на основе P2P (peer-to-peer) подхода
+            </h1>
+
+            <p class="mb-6">
+                <span class="text-gray-400">Основной функционал:</span>
+                <a href="pictures/2/видеодемонстрация.mp4" target="_blank" class="text-blue-400 hover:underline ml-2">
+                    видеодемонстрация.mp4
+                </a>
+            </p>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Основная идея</h2>
+            <p class="mb-6 text-gray-300 leading-relaxed">
+                Проект представляет собой цифровую платформу, в которой реализована гибридная модель оценивания. Студенты не только сдают свои работы, но и анонимно проверяют работы друг друга (P2P). Преподаватель при этом выполняет контролирующую и модераторскую роль: управляет учебными сессиями, следит за качеством рецензий (с помощью системы штрафов) и выставляет итоговые оценки.
+            </p>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Ключевые возможности системы</h2>
+            <ul class="space-y-2 mb-6 text-gray-300">
+                <li class="pl-4 border-l-2 border-blue-500">
+                    <strong class="text-white">Для студентов:</strong> подключение к учебным сессиям по уникальному ключу, загрузка своих работ, проверка работ других студентов (с выставлением оценки и написанием комментария), просмотр полученных рецензий.
+                </li>
+                <li class="pl-4 border-l-2 border-blue-500">
+                    <strong class="text-white">Для преподавателей:</strong> создание и управление группами и сессиями, загрузка учебных материалов, запуск этапа взаимной проверки, автоматическое распределение работ (каждый студент проверяет 3 работы), просмотр аудита рецензий, наложение штрафов на некачественные проверки, выставление итоговых оценок и экспорт результатов в Excel.
+                </li>
+                <li class="pl-4 border-l-2 border-blue-500">
+                    <strong class="text-white">Для администраторов:</strong> управление пользователями (создание, редактирование, удаление), управление группами и их составом, а также общие системные настройки.
+                </li>
+            </ul>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Технологический стек</h2>
+            <ul class="space-y-2 mb-6 text-gray-300 list-disc list-inside">
+                <li><strong class="text-white">Клиентская часть:</strong> Кроссплатформенное десктопное приложение на <strong>Tauri</strong> с использованием <strong>React</strong>, <strong>TypeScript</strong> и <strong>Vite</strong>. Это обеспечивает низкое потребление ресурсов и малый размер приложения.</li>
+                <li><strong class="text-white">Серверная часть:</strong> <strong>NestJS</strong> (фреймворк для Node.js) с <strong>TypeScript</strong>. Для взаимодействия в реальном времени используется <strong>Socket.io</strong>.</li>
+                <li><strong class="text-white">База данных:</strong> <strong>PostgreSQL</strong> с <strong>Prisma ORM</strong> для типобезопасной работы с данными.</li>
+                <li><strong class="text-white">Развертывание:</strong> <strong>Docker</strong> и <strong>Docker Compose</strong>, с автоматизированным CI/CD-пайплайном на <strong>GitHub Actions</strong>.</li>
+                <li><strong class="text-white">Тестирование:</strong> Функциональное (Jest, Supertest), нагрузочное (k6) и юнит-тестирование.</li>
+            </ul>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Роли пользователей</h2>
+            <ol class="space-y-2 mb-6 text-gray-300 list-decimal list-inside">
+                <li><strong class="text-white">Студент:</strong> основной участник процесса оценивания.</li>
+                <li><strong class="text-white">Преподаватель:</strong> организатор и модератор учебного процесса.</li>
+                <li><strong class="text-white">Администратор:</strong> управляющий учетными записями и системными настройками.</li>
+            </ol>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Ключевые особенности</h2>
+            <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                <li><strong class="text-white">Автоматическое распределение работ:</strong> Используется алгоритм Фишера-Йетса для случайного и равномерного назначения рецензентов.</li>
+                <li><strong class="text-white">Система штрафов:</strong> Преподаватель может снизить итоговую оценку студента за некачественно выполненную рецензию.</li>
+                <li><strong class="text-white">Расчет итоговой оценки:</strong> Формула <code class="bg-gray-800 px-2 py-1 rounded text-blue-300">finalGrade = max(2, grade - penalty)</code> гарантирует, что оценка не опустится ниже минимального балла.</li>
+                <li><strong class="text-white">Экспорт данных:</strong> Возможность выгрузки результатов сессии в формате Excel и создания ZIP-архивов с работами и материалами.</li>
+                <li><strong class="text-white">Управление жизненным циклом сессии:</strong> Сессия проходит через несколько статусов: <code class="bg-gray-800 px-2 py-1 rounded text-blue-300">WAITING</code>, <code class="bg-gray-800 px-2 py-1 rounded text-blue-300">ACTIVE</code>, <code class="bg-gray-800 px-2 py-1 rounded text-blue-300">REVIEWING</code>, <code class="bg-gray-800 px-2 py-1 rounded text-blue-300">CLOSED</code>, <code class="bg-gray-800 px-2 py-1 rounded text-blue-300">CANCELLED</code>.</li>
+            </ul>
+        </section>
+
+        <!-- Проект 2 -->
+        <section>
+            <h1 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-3">
+                2. Приложение для интерактивного изучения английского языка с рейтинговой системой на основе аддитивного критерия
+            </h1>
+
+            <p class="mb-2">
+                <span class="text-gray-400">Ссылка на репозиторий:</span>
+                <a href="https://github.com/ArkaJl/CourseProject" target="_blank" class="text-blue-400 hover:underline ml-2">
+                    github.com/ArkaJl/CourseProject
+                </a>
+            </p>
+            <p class="mb-6">
+                <span class="text-gray-400">Основной функционал:</span>
+                <a href="pictures/4/видеодемонстрация.mkv" target="_blank" class="text-blue-400 hover:underline ml-2">
+                    видеодемонстрация.mkv
+                </a>
+            </p>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Основная идея</h2>
+            <p class="mb-6 text-gray-300 leading-relaxed">
+                Приложение представляет собой веб-платформу для изучения английского языка, сочетающую в себе элементы геймификации и социального взаимодействия. Пользователи (ученики) проходят курсы, состоящие из уроков и заданий, отслеживают свой прогресс и соревнуются в рейтинге. Преподаватели, в свою очередь, получают инструменты для создания собственного образовательного контента (курсов, уроков, заданий) и управления учебными классами.
+            </p>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Ключевые возможности системы</h2>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-200">Для учеников (Student)</h3>
+            <ul class="space-y-1 mb-4 text-gray-300 list-disc list-inside">
+                <li>Регистрация и авторизация с выбором роли.</li>
+                <li>Просмотр каталога курсов, сгруппированных по категориям, и поиск по названию.</li>
+                <li>Прохождение курсов, состоящих из последовательных уроков с интерактивными заданиями (викторинами).</li>
+                <li>Просмотр личного профиля с историей пройденных уроков, количеством набранных баллов и датами выполнения.</li>
+                <li>Участие в общем рейтинге (таблице лидеров) для повышения мотивации.</li>
+                <li>Вступление в классы, созданные преподавателями, для доступа к их курсам.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-200">Для преподавателей (Teacher)</h3>
+            <ul class="space-y-1 mb-6 text-gray-300 list-disc list-inside">
+                <li>Создание и управление собственными курсами, уроками и заданиями.</li>
+                <li>Добавление в уроки вопросов с несколькими вариантами ответов, указание правильного ответа и количества баллов за задание.</li>
+                <li>Создание учебных классов и управление ими (принятие или отклонение запросов на вступление).</li>
+                <li>Просмотр списка студентов в классе и их детального прогресса по курсам (какие уроки и с каким результатом пройдены).</li>
+            </ul>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Технологический стек</h2>
+            <ul class="space-y-2 mb-6 text-gray-300 list-disc list-inside">
+                <li><strong class="text-white">Клиентская часть (Frontend):</strong> <strong>React</strong> (с использованием функциональных компонентов и хуков, таких как <code class="bg-gray-800 px-2 py-1 rounded text-blue-300">useState</code>, <code class="bg-gray-800 px-2 py-1 rounded text-blue-300">useEffect</code>) для создания динамичного пользовательского интерфейса. Для взаимодействия с сервером используется библиотека <strong>Axios</strong>.</li>
+                <li><strong class="text-white">Серверная часть (Backend):</strong> <strong>Node.js</strong> с фреймворком <strong>Express.js</strong> для обработки HTTP-запросов и реализации REST API.</li>
+                <li><strong class="text-white">База данных:</strong> <strong>MySQL</strong> (реляционная СУБД) для хранения данных о пользователях, курсах, уроках, заданиях и результатах.</li>
+            </ul>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Роли пользователей</h2>
+            <ol class="space-y-2 mb-6 text-gray-300 list-decimal list-inside">
+                <li><strong class="text-white">Ученик (Student):</strong> основной потребитель контента, проходящий курсы и выполняющий задания.</li>
+                <li><strong class="text-white">Преподаватель (Teacher):</strong> создатель контента и управляющий учебными классами.</li>
+            </ol>
+
+            <h2 class="text-2xl font-semibold mb-3 text-blue-300">Ключевые особенности и алгоритмы</h2>
+            <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                <li><strong class="text-white">Валидация данных:</strong> Проверка корректности ввода на стороне клиента (email, длина пароля) и сервера.</li>
+                <li><strong class="text-white">Последовательное прохождение уроков:</strong> Уроки в курсе упорядочены, и система отслеживает, какие из них уже пройдены.</li>
+                <li><strong class="text-white">Система начисления баллов:</strong> За каждое правильно выполненное задание начисляются баллы, которые суммируются и влияют на позицию в рейтинге.</li>
+                <li><strong class="text-white">Каскадное удаление:</strong> При удалении курса автоматически удаляются все связанные с ним уроки и задания.</li>
+                <li><strong class="text-white">Таблица лидеров:</strong> Реализован алгоритм для отображения топ-3 пользователей и позиции текущего пользователя с его ближайшим окружением.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-gray-700 py-6 text-center text-sm text-gray-500">
+        © 2026 Портфолио
+    </footer>
+
+</body>
+</html>
