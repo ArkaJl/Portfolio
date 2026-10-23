@@ -9,19 +9,55 @@
         body {
             font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         }
-        .gallery-item {
-            height: 200px;
-            width: auto;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            transition: transform 0.2s ease;
-            cursor: pointer;
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
         }
-        .gallery-item:hover {
-            transform: scale(1.05);
-            z-index: 10;
-            position: relative;
+        .project-gallery img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            border: 1px solid #374151;
+            cursor: zoom-in;
+            transition: transform .2s ease, box-shadow .2s ease;
+            background: #1f2937;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        .project-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,.5);
+        }
+
+
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,.9);
+            padding: 1rem;
+        }
+        #lightbox.open { display: flex; }
+        #lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: .5rem;
+        }
+        #lightbox .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            font-size: 2rem;
+            line-height: 1;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
         }
     </style>
 </head>
@@ -43,21 +79,21 @@
         <section class="mb-16">
             <h1 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-3">1. Рендеры и модели</h1>
 
-            <div class="flex flex-wrap gap-3">
-                <img src="pictures/3/crafty20.png" alt="crafty20" class="gallery-item">
-                <img src="pictures/3/female_game_character.png" alt="female_game_character" class="gallery-item">
-                <img src="pictures/3/fishhh_render2.png" alt="fishhh_render2" class="gallery-item">
-                <img src="pictures/3/street.jpg" alt="street" class="gallery-item">
-                <img src="pictures/3/sword_5.png" alt="sword_5" class="gallery-item">
-                <img src="pictures/3/lantern_nature.png" alt="lantern_nature" class="gallery-item">
-                <img src="pictures/3/tea_gast.png" alt="tea_gast" class="gallery-item">
-                <img src="pictures/3/car.jpg" alt="car" class="gallery-item">
-                <img src="pictures/3/е102.png" alt="е102" class="gallery-item">
-                <img src="pictures/3/куб.png" alt="куб" class="gallery-item">
-                <img src="pictures/3/little_cat_2.png" alt="little_cat_2" class="gallery-item">
-                <img src="pictures/3/wildwes.png" alt="wildwes" class="gallery-item">
-                <img src="pictures/3/sea_sword.png" alt="sea_sword" class="gallery-item">
-                <img src="pictures/3/dragonWorkbench.png" alt="dragonWorkbench" class="gallery-item">
+            <div class="project-gallery">
+                <img src="pictures/3/crafty20.png" alt="crafty20" loading="lazy">
+                <img src="pictures/3/female_game_character.png" alt="female_game_character" loading="lazy">
+                <img src="pictures/3/fishhh_render2.png" alt="fishhh_render2" loading="lazy">
+                <img src="pictures/3/street.jpg" alt="street" loading="lazy">
+                <img src="pictures/3/sword_5.png" alt="sword_5" loading="lazy">
+                <img src="pictures/3/lantern_nature.png" alt="lantern_nature" loading="lazy">
+                <img src="pictures/3/tea_gast.png" alt="tea_gast" loading="lazy">
+                <img src="pictures/3/car.jpg" alt="car" loading="lazy">
+                <img src="pictures/3/е102.png" alt="е102" loading="lazy">
+                <img src="pictures/3/куб.png" alt="куб" loading="lazy">
+                <img src="pictures/3/little_cat_2.png" alt="little_cat_2" loading="lazy">
+                <img src="pictures/3/wildwes.png" alt="wildwes" loading="lazy">
+                <img src="pictures/3/sea_sword.png" alt="sea_sword" loading="lazy">
+                <img src="pictures/3/dragonWorkbench.png" alt="dragonWorkbench" loading="lazy">
             </div>
         </section>
 
@@ -74,6 +110,50 @@
     <footer class="border-t border-gray-700 py-6 text-center text-sm text-gray-500">
         © 2026 Портфолио
     </footer>
+
+    <!-- Полноэкранный просмотр изображений -->
+    <div id="lightbox" aria-hidden="true">
+        <span class="close-btn" aria-label="Закрыть">&times;</span>
+        <img src="" alt="Просмотр изображения">
+    </div>
+
+    <script>
+        (function () {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const closeBtn = lightbox.querySelector('.close-btn');
+
+            function openLightbox(src, alt) {
+                lightboxImg.src = src;
+                lightboxImg.alt = alt || '';
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                lightboxImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            // Делегирование клика по всем картинкам галерей
+            document.querySelectorAll('.project-gallery img').forEach(img => {
+                img.addEventListener('click', () => openLightbox(img.src, img.alt));
+            });
+
+            // Закрытие по клику на фон или крестик
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox || e.target === closeBtn) closeLightbox();
+            });
+
+            // Закрытие по ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+            });
+        })();
+    </script>
 
 </body>
 </html>
